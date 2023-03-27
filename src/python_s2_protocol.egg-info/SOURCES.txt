@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+src/python_s2_protocol/__init__.py
+src/python_s2_protocol.egg-info/PKG-INFO
+src/python_s2_protocol.egg-info/SOURCES.txt
+src/python_s2_protocol.egg-info/dependency_links.txt
+src/python_s2_protocol.egg-info/top_level.txt

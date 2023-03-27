@@ -1,0 +1,2 @@
+def example():
+    print("example")
