@@ -162,5 +162,5 @@ cython_debug/
 build/
 .vscode
 
-python_s2_protocol/raw/*
+src/python_s2_protocol/raw/
 venv-datagen/
