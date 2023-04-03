@@ -1,6 +1,9 @@
 from python_s2_protocol.FRBC.schemas import FRBCOperationModeElement
+from pydantic.error_wrappers import ValidationError
+import json
+import pytest
 
-example_operation_mode_element = """
+operation_mode_element_raw = """
     {
         "fill_level_range": {
             "start_of_range": 0.1,
@@ -25,21 +28,29 @@ example_operation_mode_element = """
 """
 
 
+@pytest.fixture
+def operation_mode_element_dict():
+    return json.loads(operation_mode_element_raw)
 
 
-if __name__ == '__main__':
-    operation_mode_element = FRBCOperationModeElement.parse_raw(example_operation_mode_element)
+def test_parse_raw():
+    operation_mode_element = FRBCOperationModeElement.\
+                                    parse_raw(operation_mode_element_raw)
     print(operation_mode_element)
 
 
+def test_change_inner(operation_mode_element_dict):
+    operation_mode_element = FRBCOperationModeElement(**operation_mode_element_dict)
 
-# import pytest
+    # right inner type
+    operation_mode_element.fill_level_range = {'start_of_range' : 1, 'end_of_range' : 1}
 
-# def f(commodity_name, expected_failiure):
+    # wrong end type
+    with pytest.raises(ValidationError) as e_info:
+        operation_mode_element.fill_level_range = {"start_of_range" : "wrongtype", "end_of_range" : 1}
+   
+    # wrong inner type
+    with pytest.raises(ValidationError) as e_info:
+        operation_mode_element.fill_level_range = [1,2]
+
     
-#     if expected_failiure:
-#         with pytest.raises(Exception) as e_info:
-#             c1 = Commodity(commodity_name)
-
-#     else:
-#         c1 = Commodity(commodity_name)

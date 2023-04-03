@@ -16,6 +16,7 @@ from python_s2_protocol.common.schemas import ID, EnergyManagementRole, Instruct
 class Handshake(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('Handshake', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -32,6 +33,7 @@ class Handshake(BaseModel):
 class HandshakeResponse(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('HandshakeResponse', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -43,6 +45,7 @@ class HandshakeResponse(BaseModel):
 class InstructionStatusUpdate(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('InstructionStatusUpdate', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -60,6 +63,7 @@ class InstructionStatusUpdate(BaseModel):
 class PowerForecast(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('PowerForecast', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -77,6 +81,7 @@ class PowerForecast(BaseModel):
 class PowerMeasurement(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('PowerMeasurement', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -94,6 +99,7 @@ class PowerMeasurement(BaseModel):
 class ReceptionStatus(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('ReceptionStatus', const=True)
     subject_message_id: ID = Field(
@@ -111,6 +117,7 @@ class ReceptionStatus(BaseModel):
 class ResourceManagerDetails(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('ResourceManagerDetails', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -168,6 +175,7 @@ class ResourceManagerDetails(BaseModel):
 class RevokeObject(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('RevokeObject', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -181,6 +189,7 @@ class RevokeObject(BaseModel):
 class SelectControlType(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('SelectControlType', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -193,6 +202,7 @@ class SelectControlType(BaseModel):
 class SessionRequest(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('SessionRequest', const=True)
     message_id: ID = Field(..., description='ID of this message')

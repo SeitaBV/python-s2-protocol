@@ -8,12 +8,18 @@ from pydantic import BaseModel, Extra, Field, conint, constr
 
 
 class ID(BaseModel):
+    class Config:
+        validate_assignment = True
+
     __root__: constr(regex=r'[a-zA-Z0-9\-_:]{2,64}') = Field(
         ..., description='An identifier expressed as a UUID', title='ID'
     )
 
 
 class Duration(BaseModel):
+    class Config:
+        validate_assignment = True
+
     __root__: conint(ge=0) = Field(
         ..., description='Duration in milliseconds', title='Duration'
     )
@@ -22,6 +28,7 @@ class Duration(BaseModel):
 class NumberRange(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     start_of_range: float = Field(
         ..., description='Number that defines the start of the range'
@@ -54,6 +61,8 @@ class CommodityQuantity(Enum):
 class Timer(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
+
 
     id: ID = Field(
         ...,
@@ -72,6 +81,7 @@ class Timer(BaseModel):
 class Transition(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     id: ID = Field(
         ...,
@@ -115,6 +125,7 @@ class Transition(BaseModel):
 class PowerRange(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     start_of_range: float = Field(
         ..., description='Power value that defines the start of the range.'
@@ -145,6 +156,7 @@ class InstructionStatus(Enum):
 class PowerForecastValue(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     value_upper_limit: Optional[float] = Field(
         None,
@@ -179,6 +191,7 @@ class PowerForecastValue(BaseModel):
 class PowerForecastElement(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     duration: Duration = Field(...,
                                description='Duration of the PowerForecastElement')
@@ -193,6 +206,7 @@ class PowerForecastElement(BaseModel):
 class PowerValue(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     commodity_quantity: CommodityQuantity = Field(
         ..., description='The power quantity the value refers to'
@@ -334,6 +348,7 @@ class RoleType(Enum):
 class Role(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     role: RoleType = Field(
         ..., description='Role type of the Resource Manager for the given commodity'

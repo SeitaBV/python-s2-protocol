@@ -4,12 +4,13 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Extra, Field
 
-from python_s2_protocol.common.schemas import NumberRange, Duration, Commodity, Timer, Transition, PowerRange
+from python_s2_protocol.common.schemas import NumberRange, Duration, Commodity, Timer, Transition, PowerRange, ID
 
 
 class FRBCFillLevelTargetProfileElement(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     duration: Duration = Field(..., description='The duration of the element.')
     fill_level_range: NumberRange = Field(
@@ -21,6 +22,7 @@ class FRBCFillLevelTargetProfileElement(BaseModel):
 class FRBCLeakageBehaviourElement(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     fill_level_range: NumberRange = Field(
         ...,
@@ -35,6 +37,7 @@ class FRBCLeakageBehaviourElement(BaseModel):
 class FRBCOperationModeElement(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     fill_level_range: NumberRange = Field(
         ...,
@@ -59,6 +62,7 @@ class FRBCOperationModeElement(BaseModel):
 class FRBCOperationMode(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     id: ID = Field(
         ...,
@@ -83,6 +87,8 @@ class FRBCOperationMode(BaseModel):
 class FRBCActuatorDescription(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
+
 
     id: ID = Field(
         ...,
@@ -105,7 +111,7 @@ class FRBCActuatorDescription(BaseModel):
         ...,
         description='Possible transitions between FRBC.OperationModes associated with this actuator.',
         max_items=1000,
-        min_items=1,
+        min_items=0,
     )
     timers: List[Timer] = Field(
         ...,
@@ -118,6 +124,7 @@ class FRBCActuatorDescription(BaseModel):
 class FRBCStorageDescription(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     diagnostic_label: Optional[str] = Field(
         None,
@@ -148,6 +155,7 @@ class FRBCStorageDescription(BaseModel):
 class FRBCUsageForecastElement(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     duration: Duration = Field(
         ..., description='Indicator for how long the given usage_rate is valid.'

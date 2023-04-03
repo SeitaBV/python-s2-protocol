@@ -17,6 +17,7 @@ from python_s2_protocol.FRBC.schemas import FRBCLeakageBehaviourElement, \
 class FRBCActuatorStatus(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.ActuatorStatus', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -43,6 +44,7 @@ class FRBCActuatorStatus(BaseModel):
 class FRBCFillLevelTargetProfile(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.FillLevelTargetProfile', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -60,6 +62,7 @@ class FRBCFillLevelTargetProfile(BaseModel):
 class FRBCInstruction(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.Instruction', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -89,6 +92,7 @@ class FRBCInstruction(BaseModel):
 class FRBCLeakageBehaviour(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.LeakageBehaviour', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -107,6 +111,7 @@ class FRBCLeakageBehaviour(BaseModel):
 class FRBCStorageStatus(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.StorageStatus', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -118,6 +123,7 @@ class FRBCStorageStatus(BaseModel):
 class FRBCSystemDescription(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.SystemDescription', const=True)
     message_id: ID = Field(..., description='ID of this message')
@@ -132,11 +138,12 @@ class FRBCSystemDescription(BaseModel):
                                             description='Details of the storage.')
 
 
-class FRBCTimerUpdate(BaseModel):
+class FRBCTimerStatus(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
-    message_type: str = Field('FRBC.TimerUpdate', const=True)
+    message_type: str = Field('FRBC.TimerStatus', const=True)
     message_id: ID = Field(..., description='ID of this message')
     timer_id: ID = Field(...,
                          description='The ID of the timer this message refers to')
@@ -152,6 +159,7 @@ class FRBCTimerUpdate(BaseModel):
 class FRBCUsageForecast(BaseModel):
     class Config:
         extra = Extra.forbid
+        validate_assignment = True
 
     message_type: str = Field('FRBC.UsageForecast', const=True)
     message_id: ID = Field(..., description='ID of this message')
