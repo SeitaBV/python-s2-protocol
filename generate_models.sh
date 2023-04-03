@@ -1,19 +1,18 @@
 #!/bin/bash
 
 # create venv
-#python3 -m venv venv-datagen
+python3 -m venv venv-datagen
 source venv-datagen/bin/activate
 
 rm -rf src/python_s2_protocol/raw*
 
 # install code generator
-# pip install datamodel-code-generator
+pip install datamodel-code-generator
 
 basename="s2-ws-json/s2-json-schema"
 
 
 # run code generator
-
 
 mkdir -p src/python_s2_protocol/raw/common
 
@@ -39,7 +38,7 @@ done
 
 # operation modes messages and schemas
 
-for mode in "FRBC" 
+for mode in "FRBC" "PPBC" "PEBC" "DDBC" "OMBC"
 do
     mkdir -p "src/python_s2_protocol/raw/$mode"
 
