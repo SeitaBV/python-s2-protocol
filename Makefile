@@ -6,7 +6,7 @@ generate-models:
 	
 install-for-dev:
 	python3 -m venv venv
-	source venv/bin/activate && pip install -r requirements.txt && pip install -e .
+	source venv/bin/activate && pip install -e .
 
 test:
 	source venv/bin/activate && pytest
