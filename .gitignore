@@ -164,3 +164,4 @@ build/
 
 src/python_s2_protocol/raw/
 venv-datagen/
+raw/
