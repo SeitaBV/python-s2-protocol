@@ -1,5 +1,5 @@
 """
-    Setup file for flexmeasures-client.
+    Setup file for python-s2-protocol.
     Use setup.cfg to configure your project.
 
     This file was generated with PyScaffold 4.4.
