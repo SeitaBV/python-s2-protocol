@@ -39,7 +39,7 @@ do
         echo "$entry"
         filename=$(basename ${entry})
         filename=${filename/.schema.json/.py}
-        
+
         datamodel-codegen --use-title-as-name --input-file-type jsonschema --input $entry --output raw/common/$schema_type/$filename
     done
 done
@@ -59,7 +59,7 @@ do
             filename=$(basename ${entry})
             filename=${filename/schema.json/py}
             filename=${filename/$mode./}
-            
+
             datamodel-codegen --use-title-as-name   --input-file-type jsonschema  --input $entry --output raw/$mode/$schema_type/$filename
         done
     done
@@ -68,4 +68,3 @@ done
 
 # clean
 rm -rf venv-datagen/
-
