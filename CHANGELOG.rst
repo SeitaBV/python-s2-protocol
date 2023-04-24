@@ -5,6 +5,5 @@ Changelog
 Version 0.1
 ===========
 
-- Feature A added
-- FIX: nasty bug #1729 fixed
-- add your changes here!
+- Adding FRBC ControlType Schemas.
+- Adding the flag `validate_assignment = True` to the Pydantic classes to validate on update.
