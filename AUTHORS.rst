@@ -2,4 +2,4 @@
 Contributors
 ============
 
-* victor <victor@seita.nl>
+* Victor Garcia Reolid <victor@seita.nl>
