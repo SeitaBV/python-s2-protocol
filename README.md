@@ -21,7 +21,7 @@ make generate-models
 
 This command creates a python `venv` with the required dependencies to run `datamodel-codegen`.
 
-Keep in mind that the timestamp of the generation time will be on top of the file, so you'll always see changes. The results are located in `src/python_s2_protocol/raw` with the following file structure:
+Keep in mind that the timestamp of the generation time will be on top of the file, so you'll always see changes. The results are located in the `raw` folder with the following file structure:
 
 * common
   * messages
