@@ -8,7 +8,7 @@ To install the last version of this project, you can just pip install it like th
 
 
 ```
-    pip install git+ssh://git@github.com/SeitaBV/python-s2-protocol.git
+pip install git+ssh://git@github.com/SeitaBV/python-s2-protocol.git
 ```
 
 ## How to regenerate the data models from JSONSchema?
