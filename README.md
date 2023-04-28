@@ -4,7 +4,7 @@
 
 ## How to install it?
 
-To install the last version of this project, you can just pip install it like this:
+To install the latest version of this project, you can just pip install it like this:
 
 
 ```
