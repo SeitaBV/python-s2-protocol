@@ -9,4 +9,4 @@ install-for-dev:
 	source venv/bin/activate && pip install -e .
 
 test:
-	source venv/bin/activate && pytest
+	source venv/bin/activate && pip install -e . && pytest
