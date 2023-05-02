@@ -1,7 +1,9 @@
-from python_s2_protocol.FRBC.schemas import FRBCOperationModeElement
-from pydantic.error_wrappers import ValidationError
 import json
+
 import pytest
+from pydantic.error_wrappers import ValidationError
+
+from python_s2_protocol.FRBC.schemas import FRBCOperationModeElement
 
 operation_mode_element_raw = """
     {
@@ -34,8 +36,9 @@ def operation_mode_element_dict():
 
 
 def test_parse_raw():
-    operation_mode_element = FRBCOperationModeElement.\
-                                    parse_raw(operation_mode_element_raw)
+    operation_mode_element = FRBCOperationModeElement.parse_raw(
+        operation_mode_element_raw
+    )
     print(operation_mode_element)
 
 
@@ -43,14 +46,15 @@ def test_change_inner(operation_mode_element_dict):
     operation_mode_element = FRBCOperationModeElement(**operation_mode_element_dict)
 
     # right inner type
-    operation_mode_element.fill_level_range = {'start_of_range' : 1, 'end_of_range' : 1}
+    operation_mode_element.fill_level_range = {"start_of_range": 1, "end_of_range": 1}
 
     # wrong end type
     with pytest.raises(ValidationError) as e_info:
-        operation_mode_element.fill_level_range = {"start_of_range" : "wrongtype", "end_of_range" : 1}
-   
+        operation_mode_element.fill_level_range = {
+            "start_of_range": "wrongtype",
+            "end_of_range": 1,
+        }
+
     # wrong inner type
     with pytest.raises(ValidationError) as e_info:
-        operation_mode_element.fill_level_range = [1,2]
-
-    
+        operation_mode_element.fill_level_range = [1, 2]

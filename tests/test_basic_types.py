@@ -1,12 +1,11 @@
-from python_s2_protocol.common.schemas import Commodity, NumberRange, Duration
 import pytest
+
+from python_s2_protocol.common.schemas import Commodity, Duration, NumberRange
 
 
 @pytest.mark.parametrize(
     "commodity_name, expected_failiure",
-    (["GAS", False],
-     ["ELECTRICITY", False],
-     ["NOTACOMMODITY", True])
+    (["GAS", False], ["ELECTRICITY", False], ["NOTACOMMODITY", True]),
 )
 def test_commodity(commodity_name, expected_failiure):
     if expected_failiure:
@@ -19,14 +18,16 @@ def test_commodity(commodity_name, expected_failiure):
 
 @pytest.mark.parametrize(
     "duration, expected_failiure",
-    ([10, False],
-     [0.1, False], 
-     ["NOTADURATION", True]) # 0.1 -> Duration(__root__=0) -> this float is rounded to int 
+    (
+        [10, False],
+        [0.1, False],
+        ["NOTADURATION", True],
+    ),  # 0.1 -> Duration(__root__=0) -> this float is rounded to int
 )
 def test_duration(duration, expected_failiure):
     if expected_failiure:
         with pytest.raises(Exception) as e_info:
-            d1 = Duration(__root__ = duration)
+            d1 = Duration(__root__=duration)
     else:
         d2 = Duration(__root__=duration)
 
@@ -38,7 +39,7 @@ def test_number_range():
     # wrong type
     with pytest.raises(Exception) as e_info:
         n2 = NumberRange(start_of_range="wrong type", end_of_range=1)
-    
+
     # missing argument
     with pytest.raises(Exception) as e_info:
         n3 = NumberRange(end_of_range=1)
