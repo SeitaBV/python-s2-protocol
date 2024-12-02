@@ -1,3 +1,5 @@
+Note: This repository is ARCHIVED, work continues in https://github.com/flexiblepower/s2-python.
+
 # S2 Protocol Python Integration
 
 
